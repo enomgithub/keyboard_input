@@ -317,20 +317,20 @@ function toggleKey_44009(keyCode_44011, element_44012) {
 	
 }
 
-function main_44015() {
+function main_44017() {
 
-		function colonanonymous__44023(e_44025) {
-				toggleKey_44009(e_44025.keyCode, bar_44022);
+		function colonanonymous__44025(e_44027) {
+				toggleKey_44009(e_44027.keyCode, bar_44024);
 
 			
 		}
 
-		var bar_44022 = document.getElementById("bar");
-		bar_44022.style.backgroundColor = "#302833";
-		bar_44022.style.height = toJSStr((nsuIntToStr(10, 1).slice(0,-1)).concat(makeNimstrLit("px")));
-		bar_44022.style.width = toJSStr((nsuIntToStr(100, 1).slice(0,-1)).concat(makeNimstrLit("px")));
-		window.addEventListener("keydown", colonanonymous__44023, false);
+		var bar_44024 = document.getElementById("bar");
+		bar_44024.style.backgroundColor = "#302833";
+		bar_44024.style.height = toJSStr((nsuIntToStr(10, 1).slice(0,-1)).concat(makeNimstrLit("px")));
+		bar_44024.style.width = toJSStr((nsuIntToStr(100, 1).slice(0,-1)).concat(makeNimstrLit("px")));
+		window.addEventListener("keydown", colonanonymous__44025, false);
 
 	
 }
-main_44015();
+main_44017();

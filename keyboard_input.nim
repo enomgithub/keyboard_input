@@ -19,9 +19,12 @@ proc decWidth(element: Element) =
 
 
 proc toggleKey(keyCode: int, element: Element) =
+  const
+    jKey: int = 74
+    kKey: int = 75
   case keyCode
-  of 74: decWidth(element)  # j key
-  of 75: incWidth(element)  # k key
+  of jKey: decWidth(element)
+  of kKey: incWidth(element)
   else: discard
 
 
