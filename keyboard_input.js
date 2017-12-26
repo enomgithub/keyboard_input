@@ -278,12 +278,12 @@ function nsuIntToStr(x_38644, minchars_38645) {
 
 }
 
-function decWidth_44005(element_44007) {
-		var width_44008 = parseInt(element_44007.style.width);
-		if ((width_44008 <= 1)) {
+function decWidth_44006(element_44008) {
+		var width_44009 = parseInt(element_44008.style.width);
+		if ((width_44009 <= 1)) {
 		}
 		else {
-			element_44007.style.width = toJSStr((nsuIntToStr((width_44008 - 1), 1).slice(0,-1)).concat(makeNimstrLit("px")));
+			element_44008.style.width = toJSStr((nsuIntToStr((width_44009 - 1), 1).slice(0,-1)).concat(makeNimstrLit("px")));
 		}
 		
 
@@ -292,7 +292,8 @@ function decWidth_44005(element_44007) {
 
 function incWidth_44001(element_44003) {
 		var width_44004 = parseInt(element_44003.style.width);
-		if ((window.innerWidth <= width_44004)) {
+		var maxWidth_44005 = (window.innerWidth - (parseInt(document.body.style.margin) * 2));
+		if ((maxWidth_44005 <= width_44004)) {
 		}
 		else {
 			element_44003.style.width = toJSStr((nsuIntToStr((width_44004 + 1), 1).slice(0,-1)).concat(makeNimstrLit("px")));
@@ -302,13 +303,13 @@ function incWidth_44001(element_44003) {
 	
 }
 
-function toggleKey_44009(keyCode_44011, element_44012) {
-		switch (keyCode_44011) {
+function toggleKey_44010(keyCode_44012, element_44013) {
+		switch (keyCode_44012) {
 		case 74:
-			decWidth_44005(element_44012);
+			decWidth_44006(element_44013);
 			break;
 		case 75:
-			incWidth_44001(element_44012);
+			incWidth_44001(element_44013);
 			break;
 		default: 
 			break;
@@ -317,20 +318,21 @@ function toggleKey_44009(keyCode_44011, element_44012) {
 	
 }
 
-function main_44015() {
+function main_44016() {
 
-		function colonanonymous__44023(e_44025) {
-				toggleKey_44009(e_44025.keyCode, bar_44022);
+		function colonanonymous__44024(e_44026) {
+				toggleKey_44010(e_44026.keyCode, bar_44023);
 
 			
 		}
 
-		var bar_44022 = document.getElementById("bar");
-		bar_44022.style.backgroundColor = "#302833";
-		bar_44022.style.height = toJSStr((nsuIntToStr(10, 1).slice(0,-1)).concat(makeNimstrLit("px")));
-		bar_44022.style.width = toJSStr((nsuIntToStr(100, 1).slice(0,-1)).concat(makeNimstrLit("px")));
-		window.addEventListener("keydown", colonanonymous__44023, false);
+		var bar_44023 = document.getElementById("bar");
+		bar_44023.style.backgroundColor = "#302833";
+		bar_44023.style.height = toJSStr((nsuIntToStr(10, 1).slice(0,-1)).concat(makeNimstrLit("px")));
+		bar_44023.style.width = toJSStr((nsuIntToStr(100, 1).slice(0,-1)).concat(makeNimstrLit("px")));
+		document.body.style.margin = "8px";
+		window.addEventListener("keydown", colonanonymous__44024, false);
 
 	
 }
-main_44015();
+main_44016();

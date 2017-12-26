@@ -3,8 +3,10 @@ from strutils import intToStr, parseInt
 
 
 proc incWidth(element: Element) =
-  let width = element.style.width.parseInt
-  if width >= window.innerWidth: discard
+  let
+    width = element.style.width.parseInt
+    maxWidth = window.innerWidth - document.body.style.margin.parseInt * 2
+  if width >= maxWidth: discard
   else: element.style.width = (width + 1).intToStr & "px"
 
 
@@ -34,6 +36,7 @@ proc main() =
   bar.style.backgroundColor = COLOR
   bar.style.height = HEIGHT.intToStr & "px"
   bar.style.width = WIDTH.intToStr & "px"
+  document.body.style.margin = "8px"
   window.addEventListener( "keydown"
                          , proc(e: Event) = toggleKey(e.keyCode, bar)
                          , false
