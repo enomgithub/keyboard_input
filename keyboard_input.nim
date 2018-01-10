@@ -1,5 +1,5 @@
 import dom
-from strutils import intToStr, parseInt
+import strutils
 
 
 proc incWidth(element: Element) =
@@ -7,13 +7,13 @@ proc incWidth(element: Element) =
     width = element.style.width.parseInt
     maxWidth = window.innerWidth - document.body.style.margin.parseInt * 2
   if width >= maxWidth: discard
-  else: element.style.width = (width + 1).intToStr & "px"
+  else: element.style.width = $(width + 1) & "px"
 
 
 proc decWidth(element: Element) =
   let width = element.style.width.parseInt
   if width <= 1: discard
-  else: element.style.width = (width - 1).intToStr & "px"
+  else: element.style.width = $(width - 1) & "px"
 
 
 proc toggleKey(keyCode: int, element: Element) =
@@ -34,13 +34,11 @@ proc main() =
     COLOR = "#302833"
   let bar = document.getElementById(ID)
   bar.style.backgroundColor = COLOR
-  bar.style.height = HEIGHT.intToStr & "px"
-  bar.style.width = WIDTH.intToStr & "px"
+  bar.style.height = $HEIGHT & "px"
+  bar.style.width = $WIDTH & "px"
   document.body.style.margin = "8px"
-  window.addEventListener( "keydown"
-                         , proc(e: Event) = toggleKey(e.keyCode, bar)
-                         , false
-                         )
+  window.addEventListener("keydown",
+                          proc(e: Event) = toggleKey(e.keyCode, bar), false)
 
 
 when isMainModule:
